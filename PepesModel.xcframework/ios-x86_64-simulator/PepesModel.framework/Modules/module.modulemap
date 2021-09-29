@@ -1,0 +1,6 @@
+framework module PepesModel {
+    umbrella header "PepesModel.h"
+
+    export *
+    module * { export * }
+}
