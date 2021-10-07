@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class PepesModelCategoryInbox, PepesModelGiftCardDetail, PepesModelGiftCardPayload, PepesModelInboxStatus, PepesModelInbox, PepesModelInboxDeeplink, PepesModelInboxGiftCard, PepesModelInboxInfo, PepesModelInboxPromo, PepesModelInboxReminder, PepesModelKotlinEnumCompanion, PepesModelKotlinEnum<E>, PepesModelInboxStatusCompanion, PepesModelKotlinArray<T>, PepesModelInboxWebView, PepesModelLanguage, PepesModelLanguageBahasa, PepesModelLanguageENglish, PepesModelPayloadInboxPromo, PepesModelRequestCategoryInboxStatus, PepesModelRequestCategoryInboxStatusSuccessLocal, PepesModelRequestCategoryInboxStatusSuccessRemote, PepesModelRequestInboxCollectionStatus, PepesModelRequestInboxCollectionStatusSuccessLocal, PepesModelRequestInboxCollectionStatusSuccessRemote, PepesModelSuccessRemoteInbox;
+@class PepesModelCategoryInbox, PepesModelGiftCardDetail, PepesModelGiftCardPayload, PepesModelInboxStatus, PepesModelInbox, PepesModelInboxDeeplink, PepesModelInboxGiftCard, PepesModelInboxInfo, PepesModelInboxPromo, PepesModelInboxReminder, PepesModelKotlinEnumCompanion, PepesModelKotlinEnum<E>, PepesModelInboxStatusCompanion, PepesModelKotlinArray<T>, PepesModelInboxWebView, PepesModelInboxNeo, PepesModelInboxCollection, PepesModelInboxStatus_, PepesModelInboxStatus_Companion, PepesModelLanguage, PepesModelLanguageBahasa, PepesModelLanguageENglish, PepesModelPayloadInboxPromo, PepesModelRequestCategoryInboxStatus, PepesModelRequestCategoryInboxStatusSuccessLocal, PepesModelRequestCategoryInboxStatusSuccessRemote, PepesModelRequestInboxCollectionStatus, PepesModelRequestInboxCollectionStatusSuccessLocal, PepesModelRequestInboxCollectionStatusSuccessRemote;
 
 @protocol PepesModelKotlinComparable, PepesModelKotlinIterator;
 
@@ -444,6 +444,68 @@ __attribute__((swift_name("Inbox.WebView")))
 @property (readonly) NSString *url __attribute__((swift_name("url")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InboxCollection")))
+@interface PepesModelInboxCollection : PepesModelBase
+- (instancetype)initWithTotal_page:(int32_t)total_page page:(int32_t)page data:(NSArray<PepesModelInboxNeo *> *)data __attribute__((swift_name("init(total_page:page:data:)"))) __attribute__((objc_designated_initializer));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (int32_t)component2 __attribute__((swift_name("component2()")));
+- (NSArray<PepesModelInboxNeo *> *)component3 __attribute__((swift_name("component3()")));
+- (PepesModelInboxCollection *)doCopyTotal_page:(int32_t)total_page page:(int32_t)page data:(NSArray<PepesModelInboxNeo *> *)data __attribute__((swift_name("doCopy(total_page:page:data:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSArray<PepesModelInboxNeo *> *data __attribute__((swift_name("data")));
+@property (readonly) int32_t page __attribute__((swift_name("page")));
+@property (readonly) int32_t total_page __attribute__((swift_name("total_page")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InboxNeo")))
+@interface PepesModelInboxNeo : PepesModelBase
+- (instancetype)initWithId:(NSString *)id title:(NSString *)title message:(NSString *)message content:(NSString *)content status:(PepesModelInboxStatus_ *)status datetime:(int64_t)datetime imageUrl:(NSString *)imageUrl __attribute__((swift_name("init(id:title:message:content:status:datetime:imageUrl:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (NSString *)component4 __attribute__((swift_name("component4()")));
+- (PepesModelInboxStatus_ *)component5 __attribute__((swift_name("component5()")));
+- (int64_t)component6 __attribute__((swift_name("component6()")));
+- (NSString *)component7 __attribute__((swift_name("component7()")));
+- (PepesModelInboxNeo *)doCopyId:(NSString *)id title:(NSString *)title message:(NSString *)message content:(NSString *)content status:(PepesModelInboxStatus_ *)status datetime:(int64_t)datetime imageUrl:(NSString *)imageUrl __attribute__((swift_name("doCopy(id:title:message:content:status:datetime:imageUrl:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *content __attribute__((swift_name("content")));
+@property (readonly) int64_t datetime __attribute__((swift_name("datetime")));
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *imageUrl __attribute__((swift_name("imageUrl")));
+@property (readonly) NSString *message __attribute__((swift_name("message")));
+@property (readonly) PepesModelInboxStatus_ *status __attribute__((swift_name("status")));
+@property (readonly) NSString *title __attribute__((swift_name("title")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InboxStatus")))
+@interface PepesModelInboxStatus_ : PepesModelKotlinEnum<PepesModelInboxStatus_ *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly, getter=companion) PepesModelInboxStatus_Companion *companion __attribute__((swift_name("companion")));
+@property (class, readonly) PepesModelInboxStatus_ *unread __attribute__((swift_name("unread")));
+@property (class, readonly) PepesModelInboxStatus_ *read __attribute__((swift_name("read")));
++ (PepesModelKotlinArray<PepesModelInboxStatus_ *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InboxStatus.Companion")))
+@interface PepesModelInboxStatus_Companion : PepesModelBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) PepesModelInboxStatus_Companion *shared __attribute__((swift_name("shared")));
+- (PepesModelInboxStatus_ *)getParam:(NSString * _Nullable)param __attribute__((swift_name("get(param:)")));
+@end;
+
 __attribute__((swift_name("Language")))
 @interface PepesModelLanguage : PepesModelBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
@@ -561,22 +623,6 @@ __attribute__((swift_name("RequestInboxCollectionStatus.SuccessRemote")))
 - (int32_t)component2 __attribute__((swift_name("component2()")));
 - (NSArray<PepesModelInbox *> *)component3 __attribute__((swift_name("component3()")));
 - (PepesModelRequestInboxCollectionStatusSuccessRemote *)doCopyTotal_page:(int32_t)total_page page:(int32_t)page data:(NSArray<PepesModelInbox *> *)data __attribute__((swift_name("doCopy(total_page:page:data:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<PepesModelInbox *> *data __attribute__((swift_name("data")));
-@property (readonly) int32_t page __attribute__((swift_name("page")));
-@property (readonly) int32_t total_page __attribute__((swift_name("total_page")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SuccessRemoteInbox")))
-@interface PepesModelSuccessRemoteInbox : PepesModelBase
-- (instancetype)initWithTotal_page:(int32_t)total_page page:(int32_t)page data:(NSArray<PepesModelInbox *> *)data __attribute__((swift_name("init(total_page:page:data:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)component1 __attribute__((swift_name("component1()")));
-- (int32_t)component2 __attribute__((swift_name("component2()")));
-- (NSArray<PepesModelInbox *> *)component3 __attribute__((swift_name("component3()")));
-- (PepesModelSuccessRemoteInbox *)doCopyTotal_page:(int32_t)total_page page:(int32_t)page data:(NSArray<PepesModelInbox *> *)data __attribute__((swift_name("doCopy(total_page:page:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
